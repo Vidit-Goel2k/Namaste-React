@@ -1,6 +1,7 @@
 /** 
- * <div #parent>
- *  div child1
+ * div #parent
+ *  h1
+ *  div #child1
  *      h2
  *      p 
 */
@@ -25,3 +26,6 @@ const parent = React.createElement('div',{id: 'parent'},[
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(parent) //converts object to html tag
+
+const abc = ReactDOM.createRoot(document.getElementById('abc'))
+abc.render(parent) //converts object to html tag
