@@ -1,0 +1,22 @@
+{
+  "name": "namaste-react",
+  "version": "1.0.0",
+  "description": "React tutorial ",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vidit-Goel2k/Namaste-React.git"
+  },
+  "author": "Vidit Goel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vidit-Goel2k/Namaste-React/issues"
+  },
+  "homepage": "https://github.com/Vidit-Goel2k/Namaste-React#readme",
+  "devDependencies": {
+    "parcel": "^2.11.0"
+  }
+}
