@@ -29,6 +29,3 @@ const parent = React.createElement('div',{id: 'parent'},[
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(parent) //converts object to html tag
-
-const abc = ReactDOM.createRoot(document.getElementById('abc'))
-abc.render(parent) //converts object to html tag
