@@ -16,16 +16,11 @@ const heading = React.createElement( //object
     }, 
     "Hello World from React!" //children
 )
-const parent = React.createElement('div',{id: 'parent'},[
-    heading, 
-    React.createElement('div', {id: 'child'},[
-        React.createElement('h2', {}, 'I am a h2 tag'),
-        React.createElement('p', {}, 'This is custom CRA'),       
-    ])
-])
 
-// Can React be written without JSX? Yes but its very ugly and complicated.
-// Need for JSX: unreadable code for complex nested html
+// JSX -> babel transpiles into React.createElement() -> React Element (object) -> Html element (on render)
+
+const jsxHeading = <h1>This is namaste React using JSX</h1>
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
-root.render(parent) //converts object to html tag
+root.render(jsxHeading) //converts object to html tag
