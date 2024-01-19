@@ -20,7 +20,7 @@ const parent = React.createElement('div',{id: 'parent'},[
     heading, 
     React.createElement('div', {id: 'child'},[
         React.createElement('h2', {}, 'I am a h2 tag'),
-        React.createElement('p', {}, 'I am a p tag'),       
+        React.createElement('p', {}, 'This is custom CRA'),       
     ])
 ])
 
