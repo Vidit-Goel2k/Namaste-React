@@ -20,16 +20,26 @@ const heading = React.createElement( //object
 // JSX -> babel transpiles into React.createElement() -> React Element (object) -> Html element (on render)
 
 // React Element
-const jsxHeading = <h1>This is namaste React using JSX</h1>
+const jsxHeading = <h1>This is namaste React using JSX</h1> 
 
 // React Functional Component, different syntax 
 const HeadingComponent = () => {
     return (
         <div>
             <h1>this is react functional component 1</h1>
+            {reactElem}
         </div>
     )
 }
+
+// infinite loop in jsx as HeadingComponent has reactElem and reactElem has HeadingComponent
+const reactElem = (
+    <span> 
+        {jsxHeading} 
+        Inside a react Element
+        {/* <HeadingComponent /> */}
+    </span>
+)
 
 const HeadingComponent2 = () => (
 <div>
@@ -44,9 +54,15 @@ const ParentHeadingComponent = () => (
     <>
         <HeadingComponent />
         <HeadingComponent2 />
+        <HeadingComponent2></HeadingComponent2>
         <HeadingComponent3 />
+        {HeadingComponent3()}
     </>
 )
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(<ParentHeadingComponent />) //converts object to html tag
+
+
+const data = api.getData(/** mallicious javascript code */)
+const jsxElement = <div>{data}</div> //jsx prevents XSS attacks by automatically sanitizing the script to be executed and escapes it
