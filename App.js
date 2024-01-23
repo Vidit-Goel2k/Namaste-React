@@ -19,8 +19,34 @@ const heading = React.createElement( //object
 
 // JSX -> babel transpiles into React.createElement() -> React Element (object) -> Html element (on render)
 
+// React Element
 const jsxHeading = <h1>This is namaste React using JSX</h1>
 
+// React Functional Component, different syntax 
+const HeadingComponent = () => {
+    return (
+        <div>
+            <h1>this is react functional component 1</h1>
+        </div>
+    )
+}
+
+const HeadingComponent2 = () => (
+<div>
+    <h1>this is react functional component 2</h1>
+</div>
+)
+
+const HeadingComponent3 = () => <h1>This is react functional component 3</h1>
+
+// Component composition: nested components
+const ParentHeadingComponent = () => (
+    <>
+        <HeadingComponent />
+        <HeadingComponent2 />
+        <HeadingComponent3 />
+    </>
+)
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
-root.render(jsxHeading) //converts object to html tag
+root.render(<ParentHeadingComponent />) //converts object to html tag
