@@ -63,6 +63,5 @@ const ParentHeadingComponent = () => (
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(<ParentHeadingComponent />) //converts object to html tag
 
-
-const data = api.getData(/** mallicious javascript code */)
-const jsxElement = <div>{data}</div> //jsx prevents XSS attacks by automatically sanitizing the script to be executed and escapes it
+// const data = api.getData()// mallicious js code
+// const jsxElement = <div>{data}</div> //jsx prevents XSS attacks by automatically sanitizing the script to be executed and escapes it
