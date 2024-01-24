@@ -46,3 +46,7 @@
 .res-logo {
     width: 100%;
 }
+
+.filter-btn:hover{
+    cursor: pointer;
+}
