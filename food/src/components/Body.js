@@ -5,6 +5,9 @@ import Shimmer from "./Shimmer";
 
 const Body = () => {
   const [restaurantList, setRestaurantList] = useState([]);
+  const [restaurantListToRender, setRestaurantListToRender] = useState(restaurantList);
+  const [searchText, setSearchText] = useState('');
+  
 
   useEffect(() => {
     fetchData();
@@ -20,27 +23,50 @@ const Body = () => {
 
   const populateData = (swiggyApiData) => {
     setRestaurantList(swiggyApiData.restaurants);
+    setRestaurantListToRender(swiggyApiData.restaurants)
   };
 
   const ratingFilter = () => {
     const filteredRestaurantList = restaurantList.filter(
       (restaurant) => restaurant.info.avgRating >= 4
     );
-    setRestaurantList(filteredRestaurantList);
+    setRestaurantListToRender(filteredRestaurantList);
   };
-
+  
   if (restaurantList.length === 0) {
-    return <Shimmer />
+    return <Shimmer />;
+  }
+  
+  const searchHandler = () => {
+    const filteredRestaurantList = restaurantList.filter((restaurant) =>
+      restaurant.info.name.toLowerCase().includes(searchText.toLowerCase()) 
+    );
+    setRestaurantListToRender(filteredRestaurantList);
+    
+    // if(filteredRestaurantList.length === 0){
+      //   setRestaurantListToRender(restaurantList)
+    // }
+    // else{
+      //   setRestaurantListToRender(filteredRestaurantList);
+    // }
   }
 
   return (
     <div className="body">
-      <div className="search">Search</div>
-      <button className="filter-btn" onClick={ratingFilter}>
-        Top Rated
-      </button>
+      <div className="filters">
+        <div className="search">
+          <input type="text" className="search-input" value={searchText} onChange={e => {
+            setSearchText(e.target.value)
+            // searchHandler()
+          }} />
+          <button onClick={searchHandler} className="search-btn">Search</button>
+        </div>
+        <button className="filter-btn" onClick={ratingFilter}>
+          Top Rated
+        </button>
+      </div>
       <div className="res-container">
-        {restaurantList.map((restaurant) => (
+        {restaurantListToRender.map((restaurant) => (
           <RestaurantCard key={restaurant.info.id} resData={restaurant} />
         ))}
       </div>
