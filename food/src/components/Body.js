@@ -1,20 +1,19 @@
 import { useState, useEffect } from "react";
 import RestaurantCard from "./RestaurantCard";
-import { SWIGGY_API } from "../utils/constants";
+import { SWIGGY_API_CORS_PROXIED } from "../utils/constants";
 import Shimmer from "./Shimmer";
 
 const Body = () => {
   const [restaurantList, setRestaurantList] = useState([]);
   const [restaurantListToRender, setRestaurantListToRender] = useState(restaurantList);
   const [searchText, setSearchText] = useState('');
-  
 
   useEffect(() => {
     fetchData();
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch(SWIGGY_API);
+    const data = await fetch(SWIGGY_API_CORS_PROXIED);
     const json = await data.json();
     if (json && json.data.cards[4].card.card.gridElements.infoWithStyle) {
       populateData(json.data.cards[4].card.card.gridElements.infoWithStyle);
