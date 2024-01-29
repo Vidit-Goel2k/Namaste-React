@@ -32,22 +32,15 @@ const Body = () => {
     setRestaurantListToRender(filteredRestaurantList);
   };
   
-  if (restaurantList.length === 0) {
-    return <Shimmer />;
-  }
-  
   const searchHandler = () => {
     const filteredRestaurantList = restaurantList.filter((restaurant) =>
       restaurant.info.name.toLowerCase().includes(searchText.toLowerCase()) 
     );
     setRestaurantListToRender(filteredRestaurantList);
-    
-    // if(filteredRestaurantList.length === 0){
-      //   setRestaurantListToRender(restaurantList)
-    // }
-    // else{
-      //   setRestaurantListToRender(filteredRestaurantList);
-    // }
+  }
+
+  if (restaurantList.length === 0) {
+    return <Shimmer />;
   }
 
   return (
