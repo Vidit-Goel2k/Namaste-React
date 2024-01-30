@@ -5,32 +5,47 @@ class UserClass extends React.Component{
     constructor(props){
         super(props)
         this.state = {
-            count:0
+            userInfo:{},
         }
-        console.log(this.props.name + 'Child Constructor')
+        // console.log(this.props.name + 'Child Constructor')
     }
     
-    componentDidMount(){
+    async componentDidMount(){
         // Api Calls
-        console.log(this.props.name + 'Child Component Did Mount')
+        // console.log(this.props.name + 'Child Component Did Mount')
+        // const data = await fetch("https://api.github.com/users/Vidit-Goel2k")
+        // const json = await data.json()
+        // console.log(json)
+        // this.setState({
+        //     userInfo: json
+        // })
+    }
+
+    componentDidUpdate(){
+        console.log('Component Did Update')
+    }
+
+    componentWillUnmount(){
+        console.log('Component Will Unmount')
     }
     
     render(){
-        console.log(this.props.name + 'Child Render')    
-        const {name, location} = this.props
-        const { count } = this.state
+        // console.log(this.props.name + 'Child Render')    
+        // const {name, location} = this.props
+        const { name, location, avatar_url } = this.state.userInfo
         return(
             <div className="member-card">
                 {/* <Error name={'Inner '} /> */}
-                <h1>Count: {count}</h1>
+                {/* <h1>Count: {count}</h1>
                 <button onClick={()=>{
                     // Never Update State Variables Directly this.state.count = this.state.count + 1
                     this.setState({
                         // count:count+1
                         count:this.state.count + 1
                     }) 
-                }}>Click to increase count</button>
+                }}>Click to increase count</button> */}
                 <h3>Name: {name}</h3>
+                <img src={avatar_url} alt="github avatar" />
                 <h4>Location: {location}</h4>
                 <h5>Role: Software Developer Engineer 2</h5>
             </div>
