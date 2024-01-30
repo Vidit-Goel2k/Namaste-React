@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import RestaurantCard from "./RestaurantCard";
 import { SWIGGY_API_CORS_PROXIED } from "../utils/constants";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const [restaurantList, setRestaurantList] = useState([]);
@@ -47,10 +48,7 @@ const Body = () => {
     <div className="body">
       <div className="filters">
         <div className="search">
-          <input type="text" className="search-input" value={searchText} onChange={e => {
-            setSearchText(e.target.value)
-            // searchHandler()
-          }} />
+          <input type="text" className="search-input" value={searchText} onChange={e => setSearchText(e.target.value)} />
           <button onClick={searchHandler} className="search-btn">Search</button>
         </div>
         <button className="filter-btn" onClick={ratingFilter}>
@@ -59,7 +57,12 @@ const Body = () => {
       </div>
       <div className="res-container">
         {restaurantListToRender.map((restaurant) => (
-          <RestaurantCard key={restaurant.info.id} resData={restaurant} />
+          <Link 
+            to={`/restaurants/${restaurant.info.id}`}
+            key={restaurant.info.id}
+          >
+            <RestaurantCard resData={restaurant} />
+          </Link>
         ))}
       </div>
     </div>
