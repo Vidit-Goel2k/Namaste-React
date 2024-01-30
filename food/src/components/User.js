@@ -1,8 +1,17 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 const User = ({name, location}) => {
     const [count] = useState(0)
     const [count2] = useState(1)
+    useEffect(()=>{
+        const timer = setInterval(()=>{
+            console.log('first')
+        },1000)
+
+        return(()=>{
+            clearInterval(timer)
+        })
+    },[])
     return(
         <div className="member-card">
             <h1>Count: {count}</h1>
