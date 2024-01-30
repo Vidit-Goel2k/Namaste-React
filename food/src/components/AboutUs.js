@@ -2,6 +2,7 @@ import { Component } from "react"
 import User from "./User"
 import UserClass from "./UserClass"
 
+// https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
 class AboutUs extends Component{
   constructor(props){
     super(props)
@@ -19,7 +20,8 @@ class AboutUs extends Component{
       <div>
         <h1>About Us</h1>
         <h2>Team</h2>
-        <UserClass name={'Vidit Goel (Class)'} location={'Ghaziabad (Class)'} />
+        <UserClass name={'Outer '} location={'Ghaziabad (Class)'} />
+        {/* <UserClass name={'Second '} location={'Ghaziabad (Class)'} /> */}
         {console.log('Parent Render Finished')}
       </div>
     )

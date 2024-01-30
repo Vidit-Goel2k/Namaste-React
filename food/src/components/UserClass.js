@@ -1,4 +1,5 @@
 import React from "react"
+import Error from "./Error"
 
 class UserClass extends React.Component{
     constructor(props){
@@ -6,20 +7,21 @@ class UserClass extends React.Component{
         this.state = {
             count:0
         }
-        console.log('Child Constructor')
+        console.log(this.props.name + 'Child Constructor')
     }
     
     componentDidMount(){
         // Api Calls
-        console.log('Child Component Did Mount')
+        console.log(this.props.name + 'Child Component Did Mount')
     }
     
     render(){
-        console.log('Child Render')    
+        console.log(this.props.name + 'Child Render')    
         const {name, location} = this.props
         const { count } = this.state
         return(
             <div className="member-card">
+                {/* <Error name={'Inner '} /> */}
                 <h1>Count: {count}</h1>
                 <button onClick={()=>{
                     // Never Update State Variables Directly this.state.count = this.state.count + 1
