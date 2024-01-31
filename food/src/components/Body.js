@@ -3,11 +3,14 @@ import RestaurantCard from "./RestaurantCard";
 import { SWIGGY_API_CORS_PROXIED } from "../utils/constants";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
   const [restaurantList, setRestaurantList] = useState([]);
   const [restaurantListToRender, setRestaurantListToRender] = useState(restaurantList);
   const [searchText, setSearchText] = useState('');
+
+  const isOnline = useOnlineStatus()
 
   useEffect(() => {
     fetchData();
@@ -16,8 +19,8 @@ const Body = () => {
   const fetchData = async () => {
     const data = await fetch(SWIGGY_API_CORS_PROXIED);
     const json = await data.json();
-    if (json && json.data.cards[2].card.card.gridElements.infoWithStyle) {
-      populateData(json.data.cards[2].card.card.gridElements.infoWithStyle);
+    if (json && json.data.cards[3].card.card.gridElements.infoWithStyle) {
+      populateData(json.data.cards[3].card.card.gridElements.infoWithStyle);
     }
   };
 
@@ -38,6 +41,12 @@ const Body = () => {
       restaurant.info.name.toLowerCase().includes(searchText.toLowerCase()) 
     );
     setRestaurantListToRender(filteredRestaurantList);
+  }
+
+  if(isOnline === false) {
+    return(
+      <h1>You seem to be Offline, Please Check your internet connection.</h1>
+    )
   }
 
   if (restaurantList.length === 0) {
