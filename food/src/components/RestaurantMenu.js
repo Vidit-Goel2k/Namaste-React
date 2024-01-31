@@ -4,20 +4,12 @@ import { useParams } from 'react-router-dom';
 import { SWIGGY_RESTAURANT_API_CORS_PROXIED } from './../utils/constants';
 
 import Shimmer from './Shimmer';
+import useFetchRestaurantMenu from '../utils/useFetchRestaurantMenu';
 
 const RestaurantMenu = () => {
-  const [restaurantInfo, setRestaurantInfo] = useState(null)
   const {restaurantId} = useParams()
   
-  useEffect(()=>{
-    fetchRestaurantInfo()
-  },[])
-
-  const fetchRestaurantInfo = async () => {
-    const data = await fetch(`${SWIGGY_RESTAURANT_API_CORS_PROXIED + restaurantId}`)
-    const json = await data.json()
-    setRestaurantInfo(json.data)
-  } 
+  const restaurantInfo = useFetchRestaurantMenu(restaurantId)
   
   if(restaurantInfo === null) return <Shimmer />
 
