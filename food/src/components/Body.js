@@ -19,8 +19,8 @@ const Body = () => {
   const fetchData = async () => {
     const data = await fetch(SWIGGY_API_CORS_PROXIED);
     const json = await data.json();
-    if (json && json.data.cards[3].card.card.gridElements.infoWithStyle) {
-      populateData(json.data.cards[3].card.card.gridElements.infoWithStyle);
+    if (json && json.data.cards[4].card.card.gridElements.infoWithStyle) {
+      populateData(json.data.cards[4].card.card.gridElements.infoWithStyle);
     }
   };
 
