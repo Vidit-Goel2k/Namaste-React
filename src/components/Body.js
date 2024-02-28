@@ -7,26 +7,31 @@ import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
   const [restaurantList, setRestaurantList] = useState([]);
-  const [restaurantListToRender, setRestaurantListToRender] = useState(restaurantList);
-  const [searchText, setSearchText] = useState('');
+  const [restaurantListToRender, setRestaurantListToRender] =
+    useState(restaurantList);
+  const [searchText, setSearchText] = useState("");
 
-  const isOnline = useOnlineStatus()
+  const isOnline = useOnlineStatus();
 
   useEffect(() => {
     fetchData();
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch(SWIGGY_API_CORS_PROXIED);
-    const json = await data.json();
-    if (json && json.data.cards[4].card.card.gridElements.infoWithStyle) {
-      populateData(json.data.cards[4].card.card.gridElements.infoWithStyle);
+    try {
+      const data = await fetch(SWIGGY_API_CORS_PROXIED);
+      const json = await data.json();
+      if (json && json.data.cards[4].card.card.gridElements.infoWithStyle) {
+        populateData(json.data.cards[4].card.card.gridElements.infoWithStyle);
+      }
+    } catch (error) {
+      console.log(error.message);
     }
   };
 
   const populateData = (swiggyApiData) => {
     setRestaurantList(swiggyApiData.restaurants);
-    setRestaurantListToRender(swiggyApiData.restaurants)
+    setRestaurantListToRender(swiggyApiData.restaurants);
   };
 
   const ratingFilter = () => {
@@ -35,18 +40,18 @@ const Body = () => {
     );
     setRestaurantListToRender(filteredRestaurantList);
   };
-  
+
   const searchHandler = () => {
     const filteredRestaurantList = restaurantList.filter((restaurant) =>
-      restaurant.info.name.toLowerCase().includes(searchText.toLowerCase()) 
+      restaurant.info.name.toLowerCase().includes(searchText.toLowerCase())
     );
     setRestaurantListToRender(filteredRestaurantList);
-  }
+  };
 
-  if(isOnline === false) {
-    return(
+  if (isOnline === false) {
+    return (
       <h1>You seem to be Offline, Please Check your internet connection.</h1>
-    )
+    );
   }
 
   if (restaurantList.length === 0) {
@@ -54,19 +59,34 @@ const Body = () => {
   }
 
   return (
-    <div className="body">
-      <div className="filters">
-        <div className="search">
-          <input type="text" className="search-input" value={searchText} onChange={e => setSearchText(e.target.value)} />
-          <button onClick={searchHandler} className="search-btn">Search</button>
+    <div className="body bg-red-50">
+      <div className="flex">
+        <div className="my-4 ml-4">
+          <input
+            type="text"
+            className="border border-black rounded-lg"
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
+          />
+          <button
+            onClick={searchHandler}
+            className="px-4 py-1 m-4 bg-green-200 rounded-lg search-btn"
+          >
+            Search
+          </button>
         </div>
-        <button className="filter-btn" onClick={ratingFilter}>
-          Top Rated
-        </button>
+        <div className="my-4">
+          <button
+            className="px-4 py-1 m-4 bg-orange-200 rounded-lg filter-btn"
+            onClick={ratingFilter}
+          >
+            Top Rated
+          </button>
+        </div>
       </div>
-      <div className="res-container">
+      <div className="flex flex-wrap justify-start gap-6 py-4 cursor-default mx-14 res-container">
         {restaurantListToRender.map((restaurant) => (
-          <Link 
+          <Link
             to={`/restaurants/${restaurant.info.id}`}
             key={restaurant.info.id}
           >
