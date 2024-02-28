@@ -47,7 +47,6 @@ const Body = () => {
   if (restaurantList.length === 0) {
     return <Shimmer />;
   }
-  console.log(restaurantList)
   return (
     <div className="body bg-red-50">
       <Filters setRestaurantListToRender={setRestaurantListToRender} restaurantList={restaurantList} />

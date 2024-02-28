@@ -12,7 +12,6 @@ const useFetchRestaurantMenu = (restaurantId) => {
     try {
       const data = await fetch(SWIGGY_RESTAURANT_API_CORS_PROXIED + restaurantId)
       const json = await data.json()
-      console.log(json.data)
       setRestaurantInfo(json.data)
     } catch (error) {
       console.log(error)
