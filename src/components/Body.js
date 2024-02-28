@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { withDiscountedLabel } from "./RestaurantCard";
 import { SWIGGY_API_CORS_PROXIED } from "../utils/constants";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
@@ -12,6 +12,8 @@ const Body = () => {
   const [restaurantListToRender, setRestaurantListToRender] = useState(restaurantList);
 
   const isOnline = useOnlineStatus();
+
+  const RestaurantCardWithDiscountedLabel = withDiscountedLabel(RestaurantCard)
 
   useEffect(() => {
     fetchData();
@@ -45,7 +47,7 @@ const Body = () => {
   if (restaurantList.length === 0) {
     return <Shimmer />;
   }
-
+  console.log(restaurantList)
   return (
     <div className="body bg-red-50">
       <Filters setRestaurantListToRender={setRestaurantListToRender} restaurantList={restaurantList} />
@@ -58,7 +60,11 @@ const Body = () => {
               to={`/restaurants/${restaurant.info.id}`}
               key={restaurant.info.id}
             >
-              <RestaurantCard resData={restaurant} />
+              {restaurant?.info?.aggregatedDiscountInfoV3 ? (
+                <RestaurantCardWithDiscountedLabel resData={restaurant} />
+                ) : (
+                <RestaurantCard resData={restaurant} />
+              )}
             </Link>
           ))}
         </div>

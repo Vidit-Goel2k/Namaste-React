@@ -22,20 +22,20 @@ const Filters = ({setRestaurantListToRender, restaurantList}) => {
       <div className="my-4 ml-14">
         <input
           type="text"
-          className="border border-black rounded-lg"
+          className="p-2 border border-black rounded-lg"
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
         />
         <button
           onClick={searchHandler}
-          className="px-4 py-1 m-4 bg-green-200 rounded-lg search-btn"
+          className="px-4 py-2 m-4 bg-red-200 rounded-lg search-btn"
         >
           Search
         </button>
       </div>
       <div className="my-4">
         <button
-          className="px-4 py-1 m-4 bg-orange-200 rounded-lg filter-btn"
+          className="px-4 py-2 m-4 bg-red-200 rounded-lg filter-btn"
           onClick={ratingFilter}
         >
           Top Rated
