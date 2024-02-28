@@ -4,12 +4,12 @@ import { SWIGGY_API_CORS_PROXIED } from "../utils/constants";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import Filters from "./Filters";
 
 const Body = () => {
   const [restaurantList, setRestaurantList] = useState([]);
-  const [restaurantListToRender, setRestaurantListToRender] =
-    useState(restaurantList);
-  const [searchText, setSearchText] = useState("");
+  const [isLoading, setIsLoading] = useState(false)
+  const [restaurantListToRender, setRestaurantListToRender] = useState(restaurantList);
 
   const isOnline = useOnlineStatus();
 
@@ -19,6 +19,7 @@ const Body = () => {
 
   const fetchData = async () => {
     try {
+      setIsLoading(prev => !prev)
       const data = await fetch(SWIGGY_API_CORS_PROXIED);
       const json = await data.json();
       if (json && json.data.cards[4].card.card.gridElements.infoWithStyle) {
@@ -28,24 +29,11 @@ const Body = () => {
       console.log(error.message);
     }
   };
-
+  
   const populateData = (swiggyApiData) => {
     setRestaurantList(swiggyApiData.restaurants);
     setRestaurantListToRender(swiggyApiData.restaurants);
-  };
-
-  const ratingFilter = () => {
-    const filteredRestaurantList = restaurantList.filter(
-      (restaurant) => restaurant.info.avgRating >= 4
-    );
-    setRestaurantListToRender(filteredRestaurantList);
-  };
-
-  const searchHandler = () => {
-    const filteredRestaurantList = restaurantList.filter((restaurant) =>
-      restaurant.info.name.toLowerCase().includes(searchText.toLowerCase())
-    );
-    setRestaurantListToRender(filteredRestaurantList);
+    setIsLoading(prev => !prev)
   };
 
   if (isOnline === false) {
@@ -60,40 +48,21 @@ const Body = () => {
 
   return (
     <div className="body bg-red-50">
-      <div className="flex">
-        <div className="my-4 ml-4">
-          <input
-            type="text"
-            className="border border-black rounded-lg"
-            value={searchText}
-            onChange={(e) => setSearchText(e.target.value)}
-          />
-          <button
-            onClick={searchHandler}
-            className="px-4 py-1 m-4 bg-green-200 rounded-lg search-btn"
-          >
-            Search
-          </button>
+      <Filters setRestaurantListToRender={setRestaurantListToRender} restaurantList={restaurantList} />
+      {isLoading ? (
+        <Shimmer />
+      ) : (
+        <div className="flex flex-wrap justify-start gap-6 py-4 cursor-default mx-14 res-container">
+          {restaurantListToRender.map((restaurant) => (
+            <Link
+              to={`/restaurants/${restaurant.info.id}`}
+              key={restaurant.info.id}
+            >
+              <RestaurantCard resData={restaurant} />
+            </Link>
+          ))}
         </div>
-        <div className="my-4">
-          <button
-            className="px-4 py-1 m-4 bg-orange-200 rounded-lg filter-btn"
-            onClick={ratingFilter}
-          >
-            Top Rated
-          </button>
-        </div>
-      </div>
-      <div className="flex flex-wrap justify-start gap-6 py-4 cursor-default mx-14 res-container">
-        {restaurantListToRender.map((restaurant) => (
-          <Link
-            to={`/restaurants/${restaurant.info.id}`}
-            key={restaurant.info.id}
-          >
-            <RestaurantCard resData={restaurant} />
-          </Link>
-        ))}
-      </div>
+      )}
     </div>
   );
 };

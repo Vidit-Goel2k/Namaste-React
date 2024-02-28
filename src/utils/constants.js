@@ -10,7 +10,6 @@ const SWIGGY_API = 'https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.63023
 
 const SWIGGY_RESTAURANT_API = 'https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.6275674&lng=77.4376541&restaurantId=';
 
-
 export const SWIGGY_API_CORS_PROXIED = getCorsProxiedApi(SWIGGY_API);
 
 export const SWIGGY_RESTAURANT_API_CORS_PROXIED = getCorsProxiedApi(SWIGGY_RESTAURANT_API);
