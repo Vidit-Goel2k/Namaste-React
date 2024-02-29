@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import userContext from "../utils/userContext";
 
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -11,6 +12,8 @@ const Header = () => {
   const clickHandler = () => {
     setIsLoggedIn((prev) => !prev);
   };
+
+  const user = useContext(userContext)
 
   return (
     <div className="flex items-center justify-between py-2 bg-red-100 shadow-lg px-14">
@@ -37,6 +40,7 @@ const Header = () => {
           <li className="px-4">
             Cart
           </li>
+          { isLoggedIn && <li className="px-4 font-bold">{user.userName}</li> }
           <button className="px-4" onClick={clickHandler}>
             {isLoggedIn ? "Logout" : "Login"}
           </button>

@@ -2,6 +2,7 @@ import { Component } from "react"
 import User from "./User"
 import UserClass from "./UserClass"
 
+
 // https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
 class AboutUs extends Component{
   constructor(props){

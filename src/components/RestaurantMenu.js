@@ -33,8 +33,6 @@ const RestaurantMenu = () => {
     );
   });
 
-  console.log(categories);
-
   return (
     <div className="flex flex-col gap-6 bg-red-50">
       <h1 className="my-4 text-2xl font-bold text-center">{name}</h1>
@@ -54,7 +52,7 @@ const RestaurantMenu = () => {
               // }
               // setCategoryClicked={setCategoryClicked}
               showItems={index === showIndex ? true : false}
-              setShowIndex = {setShowIndex}
+              setShowIndex={setShowIndex}
               index={index}
             />
           );

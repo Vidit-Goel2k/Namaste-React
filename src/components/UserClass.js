@@ -1,24 +1,26 @@
 import React from "react"
+import userContext from "./../utils/userContext"
 import Error from "./Error"
 
 class UserClass extends React.Component{
     constructor(props){
         super(props)
         this.state = {
-            userInfo:{},
+            userInfo:{
+            },
         }
         // console.log(this.props.name + 'Child Constructor')
     }
     
     async componentDidMount(){
         // Api Calls
-        // console.log(this.props.name + 'Child Component Did Mount')
-        // const data = await fetch("https://api.github.com/users/Vidit-Goel2k")
-        // const json = await data.json()
-        // console.log(json)
-        // this.setState({
-        //     userInfo: json
-        // })
+        console.log(this.props.name + 'Child Component Did Mount')
+        const data = await fetch("https://api.github.com/users/Vidit-Goel2k")
+        const json = await data.json()
+        console.log(json)
+        this.setState({
+            userInfo: json
+        })
         // this.timer = setInterval(()=>{
         //     console.log('first')
         // },1000)
@@ -48,8 +50,14 @@ class UserClass extends React.Component{
                         count:this.state.count + 1
                     }) 
                 }}>Click to increase count</button> */}
-                <h3>Name: {name}</h3>
-                <img src={avatar_url} alt="github avatar" />
+
+                <userContext.Consumer>
+                    {user => (
+                        <h3 className="text-xl font-bold">Name: {name} - {user.userName}</h3>
+                    )}
+                </userContext.Consumer>
+
+                <img className="w-28" src={avatar_url} alt="github avatar" />
                 <h4>Location: {location}</h4>
                 <h5>Role: Software Developer Engineer 2</h5>
             </div>
