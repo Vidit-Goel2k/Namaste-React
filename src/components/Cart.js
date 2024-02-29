@@ -4,7 +4,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { clearCartAction } from "../utils/cartSlice";
 
 const Cart = () => {
+	// good for optimisation // selecting and subscribing to a specific portion of store
 	const cartItems = useSelector((store) => store.cart.items);
+	// bad for optimisation // subscribing to whole store
+	// const store = useSelector((store) => store);
+	// const cartItems = store.cart.items;
+
 	const clearCartDispatch = useDispatch();
 	const clearCartHandler = () => {
 		clearCartDispatch(clearCartAction());
