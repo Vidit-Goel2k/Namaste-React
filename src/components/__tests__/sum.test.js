@@ -1,4 +1,4 @@
-import { sum } from "../components/sum"
+import { sum } from "../sum"
 
 // test("Desc of test", () => {
 //     recievedResult = perform test 
