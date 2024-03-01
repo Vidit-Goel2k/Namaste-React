@@ -73,6 +73,10 @@ import {Component} from "path";
 - dispatch(action)
 - Selector
 
+<!-- redux dev tools are awesome -->
+
+<!-- learn RTK Query middleware, thunk redux toolkit / RTK Query quic start -->
+
 <!-- # Types of testing (devloper)
  - Unit Testing
  - Integration Testing
