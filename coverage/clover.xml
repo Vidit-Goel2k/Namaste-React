@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1709327992719" clover="3.2.0">
-  <project timestamp="1709327992719" name="All files">
+<coverage generated="1709328370379" clover="3.2.0">
+  <project timestamp="1709328370380" name="All files">
     <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2" elements="6" coveredelements="6" complexity="0" loc="4" ncloc="4" packages="1" files="2" classes="2"/>
     <file name="ContactUs.js" path="E:\Vidit\Desktop\VIDIT CODE\Web Dev\Learning\REACT\React\Namaste React\src\components\ContactUs.js">
       <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
