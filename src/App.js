@@ -10,7 +10,7 @@ import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 import userContext from "./utils/userContext";
 import { Provider } from "react-redux";
-import appstore from "./utils/appStore";
+import appStore from "./utils/appStore";
 import Cart from "./components/Cart";
 
 const Grocery = lazy(() => import("./components/Grocery"));
@@ -28,7 +28,7 @@ const AppLayout = () => {
 	}, []);
 
 	return (
-		<Provider store={appstore}>
+		<Provider store={appStore}>
 			<userContext.Provider value={{ userName: userName, setUserName }}>
 				<div className="app">
 					<Header />
