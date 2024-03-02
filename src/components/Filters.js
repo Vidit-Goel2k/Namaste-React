@@ -29,6 +29,7 @@ const Filters = ({setRestaurantListToRender, restaurantList}) => {
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
           placeholder="search"
+          data-testid ="searchInput"
         />
         <button
           onClick={searchHandler}
