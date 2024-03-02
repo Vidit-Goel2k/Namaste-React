@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1709333131712" clover="3.2.0">
-  <project timestamp="1709333131712" name="All files">
-    <metrics statements="36" coveredstatements="30" conditionals="6" coveredconditionals="5" methods="14" coveredmethods="9" elements="56" coveredelements="44" complexity="0" loc="36" ncloc="36" packages="2" files="8" classes="8"/>
+<coverage generated="1709363465109" clover="3.2.0">
+  <project timestamp="1709363465110" name="All files">
+    <metrics statements="45" coveredstatements="39" conditionals="6" coveredconditionals="5" methods="17" coveredmethods="12" elements="68" coveredelements="56" complexity="0" loc="45" ncloc="45" packages="2" files="9" classes="9"/>
     <package name="components">
-      <metrics statements="12" coveredstatements="12" conditionals="6" coveredconditionals="5" methods="6" coveredmethods="6"/>
+      <metrics statements="21" coveredstatements="21" conditionals="6" coveredconditionals="5" methods="9" coveredmethods="9"/>
       <file name="ContactUs.js" path="E:\Vidit\Desktop\VIDIT CODE\Web Dev\Learning\REACT\React\Namaste React\src\components\ContactUs.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="2" count="1" type="stmt"/>
@@ -19,6 +19,18 @@
         <line num="17" count="5" type="stmt"/>
         <line num="19" count="9" type="stmt"/>
         <line num="21" count="5" type="stmt"/>
+      </file>
+      <file name="RestaurantCard.js" path="E:\Vidit\Desktop\VIDIT CODE\Web Dev\Learning\REACT\React\Namaste React\src\components\RestaurantCard.js">
+        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
       </file>
       <file name="sum.js" path="E:\Vidit\Desktop\VIDIT CODE\Web Dev\Learning\REACT\React\Namaste React\src\components\sum.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -43,14 +55,14 @@
       </file>
       <file name="constants.js" path="E:\Vidit\Desktop\VIDIT CODE\Web Dev\Learning\REACT\React\Namaste React\src\utils\constants.js">
         <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="1" count="1" type="stmt"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="5" count="1" type="stmt"/>
-        <line num="6" count="2" type="stmt"/>
-        <line num="9" count="1" type="stmt"/>
-        <line num="11" count="1" type="stmt"/>
-        <line num="13" count="1" type="stmt"/>
-        <line num="15" count="1" type="stmt"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="6" count="4" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
       </file>
       <file name="useOnlineStatus.js" path="E:\Vidit\Desktop\VIDIT CODE\Web Dev\Learning\REACT\React\Namaste React\src\utils\useOnlineStatus.js">
         <metrics statements="8" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="2"/>

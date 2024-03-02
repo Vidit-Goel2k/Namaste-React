@@ -1,0 +1,91 @@
+{
+    "info": {
+        "id": "343911",
+        "name": "Punjabi Rasoi",
+        "cloudinaryImageId": "spqrgaw3pormfhuldull",
+        "locality": "Gautam Buddha Nagar",
+        "areaName": "Gaur City 1",
+        "costForTwo": "₹200 for two",
+        "cuisines": [
+            "North Indian",
+            "Indian",
+            "Thalis",
+            "Chinese",
+            "Beverages"
+        ],
+        "avgRating": 4,
+        "veg": true,
+        "parentId": "1270",
+        "avgRatingString": "4.0",
+        "totalRatingsString": "1K+",
+        "sla": {
+            "deliveryTime": 24,
+            "lastMileTravel": 3.5,
+            "serviceability": "SERVICEABLE",
+            "slaString": "20-25 mins",
+            "lastMileTravelString": "3.5 km",
+            "iconType": "ICON_TYPE_EMPTY"
+        },
+        "availability": {
+            "nextCloseTime": "2024-03-02 23:05:00",
+            "opened": true
+        },
+        "badges": {
+            "imageBadges": [
+                {
+                    "imageId": "v1695133679/badges/Pure_Veg111.png",
+                    "description": "pureveg"
+                }
+            ]
+        },
+        "isOpen": true,
+        "type": "F",
+        "badgesV2": {
+            "entityBadges": {
+                "imageBased": {
+                    "badgeObject": [
+                        {
+                            "attributes": {
+                                "description": "pureveg",
+                                "imageId": "v1695133679/badges/Pure_Veg111.png"
+                            }
+                        }
+                    ]
+                },
+                "textBased": {},
+                "textExtendedBadges": {}
+            }
+        },
+        "aggregatedDiscountInfoV3": {
+            "header": "₹125 OFF",
+            "subHeader": "ABOVE ₹249",
+            "discountTag": "FLAT DEAL"
+        },
+        "orderabilityCommunication": {
+            "title": {},
+            "subTitle": {},
+            "message": {},
+            "customIcon": {}
+        },
+        "differentiatedUi": {
+            "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+            "differentiatedUiMediaDetails": {
+                "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+                "lottie": {},
+                "video": {}
+            }
+        },
+        "reviewsSummary": {},
+        "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+        "restaurantOfferPresentationInfo": {}
+    },
+    "analytics": {
+        "context": "seo-data-2d0dede9-08c4-46aa-b4a9-7587cdee63c2"
+    },
+    "cta": {
+        "link": "https://www.swiggy.com/restaurants/punjabi-rasoi-gautam-buddha-nagar-gaur-city-1-noida-343911",
+        "text": "RESTAURANT_MENU",
+        "type": "WEBLINK"
+    },
+    "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
+}
