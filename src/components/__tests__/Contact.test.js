@@ -13,21 +13,21 @@ import "@testing-library/jest-dom";
 
 describe("Contact Us Page Test Cases", () => {
 
-	beforeAll(()=>{
-		console.log(beforeAll)
-	})
+	// beforeAll(()=>{
+	// 	console.log(beforeAll)
+	// })
 
-	beforeEach(()=>{
-		console.log(beforeEach)
-	})
+	// beforeEach(()=>{
+	// 	console.log(beforeEach)
+	// })
 
-	afterAll(()=>{
-		console.log(afterAll)
-	})
+	// afterAll(()=>{
+	// 	console.log(afterAll)
+	// })
 
-	afterEach(()=>{
-		console.log(afterEach)
-	})
+	// afterEach(()=>{
+	// 	console.log(afterEach)
+	// })
 
 	test("should load contact us component", () => {
 		render(<ContactUs />);
